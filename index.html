@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BjSquare</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <div class="calculator" id="calculator">
+
+        <div class="calculator-image">
+            <img src="./Logo.png" alt="Calculator Logo">
+        </div>
+
+        <div class="currency-name-field">
+            <input type="text" id="currencyName" placeholder="Enter Currency Name">
+        </div>
+
+        <div class="calculator-tabs">
+            <button type="button" class="calculator-tab active" data-panel="amountPanel"><i class='bx bx-rupee'></i>
+                Amount</button>
+            <button type="button" class="calculator-tab" data-panel="currencyPanel"><i class='bx bx-dollar'></i>
+                Currency</button>
+        </div>
+
+        <div class="calculator-panel active" id="amountPanel">
+            <div class="amount-input-group">
+                <input type="text" id="input1" placeholder="Enter Amount" inputmode="numeric">
+                <input type="text" id="input2" placeholder="Enter Rate" inputmode="decimal">
+                <div class="amount-result-value" id="amountResult">0</div>
+            </div>
+        </div>
+
+        <div class="calculator-panel" id="currencyPanel">
+            <div class="amount-input-group">
+                <input type="text" id="currencyInput1" placeholder="Enter Currency" inputmode="numeric">
+                <input type="text" id="currencyInput2" placeholder="Enter Rate" inputmode="decimal">
+                <div class="amount-result-value" id="currencyResult">0</div>
+
+                <div class="currency-buttons">
+                    <button type="button" id="currencyAddBtn"><i class='bx bx-plus'></i></button>
+                    <button type="button" id="currencyResetBtn"><i class='bx bx-refresh'></i></button>
+                    <button type="button" id="currencyNextBtn"><i class='bx bx-chevrons-right'></i></button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bill Panel -->
+    <div class="bill-overlay" id="billPanel">
+
+        <div class="bill-container">
+
+            <div class="bill-header">
+                <div class="bill-header-buttons">
+                    <button type="button" id="closeBill"><i class='bx bx-arrow-back'></i></button>
+                    <button type="button" id="screenshotBill"><i class='bx bxs-download'></i></button>
+                    <button type="button" id="shareBill"><i class='bx bxs-share-alt'></i></button>
+                </div>
+                <div class="bill-logo">
+                    <img src="./Logo.png" alt="Logo">
+                </div>
+            </div>
+
+            <!-- Final Amount -->
+            <div class="bill-final-amount">
+                <span>Final Amount</span>
+                <strong id="billFinalAmount">0</strong>
+            </div>
+
+            <div id="billContent"></div>
+
+            <div class="bill-grand-total">
+                <span>Grand Total</span>
+                <span id="billGrandTotal">0</span>
+            </div>
+
+            <!-- GST Total Box -->
+            <div class="bill-gst-row">
+                <button type="button" id="openGstPanel">GST</button>
+                <strong id="billGstTotal">0</strong>
+            </div>
+
+            <!-- GST Panel -->
+            <div class="gst-panel-overlay" id="gstPanel">
+                <div class="gst-panel-container">
+
+                    <div class="gst-panel-header">
+                        <h2>GST Panel</h2>
+                        <button type="button" id="closeGstPanel">✕</button>
+                    </div>
+
+                    <div class="gst-panel-body">
+
+                        <!-- GST Section 1 -->
+                        <div class="gst-section">
+                            <div class="gst-field">
+                                <label>Amount 1</label>
+                                <input type="text" id="gstamountinput1" readonly value="0">
+                            </div>
+                            <div class="gst-field">
+                                <label>Percentage 1 (%)</label>
+                                <input type="text" id="gstprecentageinput1" readonly value="0">
+                            </div>
+                            <div class="gst-field">
+                                <label>GST 1</label>
+                                <input type="text" id="gsttotalinput1" readonly value="0">
+                            </div>
+                            <div class="gst-field">
+                                <label>Amount 2</label>
+                                <input type="text" id="gstamountinput2" readonly value="0">
+                            </div>
+                            <div class="gst-field">
+                                <label>Percentage 2 (%)</label>
+                                <input type="text" id="gstprecentageinput2" readonly value="0">
+                            </div>
+                            <div class="gst-field">
+                                <label>GST 2</label>
+                                <input type="text" id="gsttotalinput2" readonly value="0">
+                            </div>
+                            <div class="gst-field">
+                                <label>Fix Change</label>
+                                <input type="text" id="gstFixChange" value="200">
+                            </div>
+                        </div>
+
+                        <!-- Final GST -->
+                        <div class="gst-final-row">
+                            <span>Total GST</span>
+                            <strong id="gstFinalTotal">0</strong>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="./script.js"></script>
+
+</html>
